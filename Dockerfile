@@ -3,13 +3,12 @@ FROM php:7.3.5-fpm-alpine3.9
 
 ARG USER_ID
 
-RUN apk add git \
+RUN  apk add --update git \
 	libzip-dev \
 	zip \
 	unzip \
-	postgresql-libs \
-	postgresql-dev \
-	&& docker-php-ext-install pdo_pgsql pdo_mysql zip
+	nodejs npm \
+	&& docker-php-ext-install  pdo_mysql zip
 
 RUN docker-php-ext-configure zip --with-libzip
 
