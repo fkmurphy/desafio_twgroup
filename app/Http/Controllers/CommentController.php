@@ -4,14 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Publication;
+use App\Comment;
 use Auth;
-class PublicationController extends Controller
+
+class CommentController extends Controller
 {
-        /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
@@ -23,9 +20,7 @@ class PublicationController extends Controller
      */
     public function index()
     {
-        $publications = Publication::with('comments')->get();
-        
-        return view('publications.index', compact('publications'));
+        //
     }
 
     /**
@@ -33,9 +28,10 @@ class PublicationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('publications.create');
+        $publication = Publication::find($id);
+        return view('comments.create',compact('publication'));
     }
 
     /**
@@ -44,15 +40,16 @@ class PublicationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,int $id)
     {
         $request->validate([
-            'title' => 'required',
             'content' => 'required'
         ]);
-        $publication = new Publication($request->all());
-        $publication->user_id = Auth::id();
-        $publication->save();
+        $comment = new Comment($request->all());
+        $comment->user_id = Auth::id();
+        $comment->status = "APROBADO";
+        $comment->publication_id = $id;
+        $comment->save();
 
         return redirect()->route('publications.index')->with('sucess','Publicación creada con éxito');
     }
@@ -66,10 +63,6 @@ class PublicationController extends Controller
     public function show($id)
     {
         //
-    }
-
-    public function comment($id){
-        return redirect()->route('comments.create',['id'=>$id]);
     }
 
     /**

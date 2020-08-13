@@ -20,11 +20,13 @@ class Publication extends Migration
             $table->string('title', 200)->comment('Titulo de la publicación');
             $table->text('content')->nullable()->comment('Contenido de la publicación.');            
             $table->unsignedBigInteger('user_id')->comment('Usuario que creó la publicación.');
-
             $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onDelete('no action')
                 ->onUpdate('no action');
+
+            $table->timestamps();
+            
         });    
     }
 
