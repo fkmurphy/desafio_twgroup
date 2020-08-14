@@ -10913,6 +10913,11 @@ a.text-dark:focus {
   padding: 0.2rem 1.25rem;
 }
 
+.comment-card {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .date-comment {
   font-style: italic;
   margin-bottom: 0px;

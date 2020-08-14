@@ -26,7 +26,7 @@ class Publication extends Model
         $db = DB::table('publications as p')
             ->rightJoin('comments as c','p.id','=','c.publication_id')
             ->where('c.status','=','APROBADO')
-            ->whereRaw("c.content REGEXP '.*hola .*'")
+            ->whereRaw("c.content REGEXP '.*hola.*'")
             ->select('p.id','p.content','p.title')
             ->groupBy('p.id','p.title')
             ->get();

@@ -1,15 +1,13 @@
 @extends('layouts.app')
+@include('publications.publication.index')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-        @foreach($publications as $pub)
-            <h1>Publicaciones</h1>
-            <h3>{{ $pub->title }}</h3>
-            <p>{{ $pub->content }}</p>
-          
-            <hr>
-        @endforeach
+        <h3>{{ __('publications.greeting_title') }}</h3>
+        @yield('publications')
+        
         </div>
     </div>
 </div>
