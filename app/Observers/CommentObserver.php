@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\{Comment,User,Publication};
-use App\Notifications\CreateCommentNotification;
+use App\{Comment};
+use App\Notifications\NewCommentNotification;
 
 class CommentObserver
 {
@@ -13,11 +13,11 @@ class CommentObserver
      * @param  \App\Comment  $comment
      * @return void
      */
-    public function created(Comment $comment,Publication $publication)
+    public function created(Comment $comment)
     {
-        $publication = Publication::find($comment->publication_id);
-        if($publication && $user = User::find($publication->user_id)){
-            $user->notify(new CreateCommentNotification($comment));
+        $publication = $comment->publication()->first();
+        if($publication && $user = $publication->user()->first()){
+            $user->notify(new NewCommentNotification($publication));
         }
     }
 

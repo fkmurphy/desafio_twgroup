@@ -3,11 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use \Carbon\Carbon;
 class Comment extends Model
 {
     protected $table = 'comments';
-
     protected $fillable = [
         'status', 'content'
     ];
@@ -17,6 +16,13 @@ class Comment extends Model
     ];
 
     public function publication(){
-        return $this->belongsTo(Publication::class,'id','publication_id');
+        return $this->belongsTo(Publication::class,'publication_id','id');
+    }
+    public function user(){
+        return $this->hasOne(User::class,'id','user_id');
+    }
+
+    public function getCreatedAtAttribute( $value ) {
+       return (new Carbon($value))->format('d/m/y');
     }
 }

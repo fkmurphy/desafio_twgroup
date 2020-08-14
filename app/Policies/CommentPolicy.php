@@ -19,7 +19,6 @@ class CommentPolicy
      */
     public function create(User $user,int $publication)
     {
-        return true;
         return Comment::where('publication_id','=',$publication)->where('user_id','=',$user->id)->count() > 0 ? false : true;
     }
 

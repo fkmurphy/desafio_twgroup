@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Title:</strong>
+                            <strong>{{__('publications.title')}}</strong>
                             <input type="text" name="title" class="form-control" class="@error('title') is-invalid @enderror" placeholder="Title">
                             @error('title')
                                 <div class="alert alert-danger">{{ $message }}</div>

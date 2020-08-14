@@ -6,20 +6,20 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use App\Comment;
-class CreateCommentNotification extends Notification
+use App\Publication;
+class NewCommentNotification extends Notification
 {
     use Queueable;
-    private $comment;
+    private $publication;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(Comment $comment)
+    public function __construct(Publication $publication)
     {
-        $this->comment = $comment;
+        $this->publication = $publication;
     }
 
     /**
@@ -42,8 +42,9 @@ class CreateCommentNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('Un nuevo comentario en su publicación: '.$this->comment->content)
-                    ->action('Ver mi publicación', url('/publications/view/'.$this->comment->publication_id));
+            ->subject("Tiene un nuevo comentario")
+            ->line('Un nuevo comentario en su publicación: '.$this->publication->title)
+            ->action('Ver mi publicación', url('/publications/view/'.$this->publication->id));
     }
 
     /**

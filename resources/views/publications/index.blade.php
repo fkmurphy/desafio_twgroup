@@ -3,8 +3,19 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-        <h1>Publicaciones</h1>
+        <div class="col-md-8 ">
+        <div class="d-flex ">
+            <div  class="p-2">
+                <h1>Publicaciones</h1>
+            </div>
+            <div class="ml-auto p-2">
+                <a href="{{route('publications.create')}}" class="btn btn-success btn-sm ">Publicar</a>        
+            </div>
+
+        </div>
+        @if($publications->count() == 0) 
+            <small>Aún no hay publicaciones.</small> 
+        @endif
         @foreach($publications as $pub)
         <div class="card text-center">
             <div class="card-header d-flex flex-row-reverse">
@@ -27,14 +38,16 @@
             <div class="card-footer text-muted">
                 <p>
                 <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#comments{{$pub->id}}" role="button" aria-expanded="false" aria-controls="comments{{$pub->id}}">
-                    Comentarios
+                    Comentarios <span class="badge badge-light">{{$pub->comments_count}}</span>
                 </a>
                 </p>
                 <div class="collapse" id="comments{{$pub->id}}">
                 <div class="card card-body">
                 @foreach($pub->comments as $comment)
                     <div class="card" >
-                        <div class="card-header d-flex flex-row-reverse">
+                        <div class="card-header d-flex  comment-header ">
+                            <p class="name-user-comment">{{$comment->user->name}}</p>
+                            <p class="ml-auto date-comment">{{$comment->created_at}}</p>
                         </div>
                         <div class="card-body">
                             <p class="card-text">{{$comment->content}}</p>

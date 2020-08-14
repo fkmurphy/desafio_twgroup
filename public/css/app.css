@@ -10904,3 +10904,17 @@ a.text-dark:focus {
   }
 }
 
+.name-user-comment {
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.comment-header {
+  padding: 0.2rem 1.25rem;
+}
+
+.date-comment {
+  font-style: italic;
+  margin-bottom: 0px;
+}
+
