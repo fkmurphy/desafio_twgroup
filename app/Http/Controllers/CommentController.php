@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Publication;
-use App\Comment;
+use App\{Comment,Publication};
 use Auth;
 use Gate;
 
@@ -48,12 +47,14 @@ class CommentController extends Controller
         $request->validate([
             'content' => 'required'
         ]);
+        $user = Auth::user();
+
         $comment = new Comment($request->all());
         $comment->user_id = Auth::id();
         $comment->status = "APROBADO";
         $comment->publication_id = $id;
         $comment->save();
-
+       
         return redirect()->route('publications.index')->with('sucess','Publicación creada con éxito');
     }
 

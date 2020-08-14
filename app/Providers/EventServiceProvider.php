@@ -6,7 +6,8 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
-
+use App\Comment;
+use App\Observers\CommentObserver;
 class EventServiceProvider extends ServiceProvider
 {
     /**
@@ -30,5 +31,6 @@ class EventServiceProvider extends ServiceProvider
         parent::boot();
 
         //
+        Comment::observe(CommentObserver::class);
     }
 }
