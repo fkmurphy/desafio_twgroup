@@ -17,13 +17,11 @@
            
             <form action="{{ route('comments.store',$publication->id) }}" method="POST">
                 @csrf
-            
                 <div class="row">
-              
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <strong>Content:</strong>
-                            <textarea class="form-control" style="height:250px" class="@error('content') is-invalid @enderror" name="content" placeholder="Content"></textarea>
+                            <strong>{{ __('comments.field_content') }}</strong>
+                            <textarea class="form-control" style="height:250px" class="@error('content') is-invalid @enderror" name="content" placeholder="{{ __('comments.placeholder_field_content') }}"></textarea>
                             @error('content')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

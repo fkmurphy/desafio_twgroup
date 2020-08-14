@@ -1,4 +1,3 @@
-@section('comments')
 <div class="card-footer text-muted">
     <p>
         <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#comments{{$pub->id}}" role="button" aria-expanded="false" aria-controls="comments{{$pub->id}}">
@@ -21,4 +20,3 @@
         </div>
     </div>
 </div>
-@endsection

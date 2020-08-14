@@ -2,9 +2,7 @@
 @section('publications')
 
 @foreach($publications as $pub)
-    @if (isset($pub->comments_count))
-        @include('publications.publication.comments',['pub' => $pub])
-    @endif
+    
 
 
         <div class="card text-center">
@@ -25,7 +23,9 @@
                 <p class="card-text">{{ $pub->content }}</p>
                 @if(isset($notPermission) && $notPermission) <small>{{ __('publications.already_commented') }}</small> @endif
             </div>
-                @yield('comments')
+            @if (isset($pub->comments_count))
+                @include('publications.publication.comments',['pub' => $pub])
+            @endif
         </div>
         <hr>
         @endforeach
