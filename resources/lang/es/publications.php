@@ -9,4 +9,5 @@ return [
     'button_create_save' => 'Guardar',
     'greeting_title' => 'Comentarios con la palabra "Hola"',
     'already_commented' => 'Usted ya ha comentado esta publicación',
+    'created_by' => 'Creado por',
 ]; 

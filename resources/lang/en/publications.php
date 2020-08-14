@@ -9,5 +9,5 @@ return [
     'button_create_save' => 'Save',
     'greeting_title' => 'Comments with word "Hola"',
     'already_commented' => 'You have already commented this',
-
+    'created_by' => 'Created by',
 ]; 

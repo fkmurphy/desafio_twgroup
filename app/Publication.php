@@ -4,6 +4,8 @@ namespace App;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
+define("WORD_RESUME",70);
+
 class Publication extends Model
 {
     protected $table = 'publications';
@@ -32,6 +34,12 @@ class Publication extends Model
             ->get();
       
         return $db;
+    }
+    public function resume(){
+        $content = $this->content;
+        return strlen($content) > WORD_RESUME ? 
+            substr($content,0,strpos(wordwrap($content,WORD_RESUME),"\n"))."..." :
+            $content;
     }
    
 }

@@ -10923,3 +10923,15 @@ a.text-dark:focus {
   margin-bottom: 0px;
 }
 
+.publication-in-comment {
+  margin-bottom: 15px;
+}
+
+.created-by {
+  font-weight: 400;
+}
+
+.created-by span {
+  font-weight: lighter;
+}
+

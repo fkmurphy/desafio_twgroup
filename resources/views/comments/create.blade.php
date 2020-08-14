@@ -12,9 +12,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <p>{{$publication->title}}</p>
-            <p>{{$publication->content}}</p>
-           
+            <div class="publication-in-comment">
+                @include('comments.publication')
+            </div>
+            
             <form action="{{ route('comments.store',$publication->id) }}" method="POST">
                 @csrf
                 <div class="row">
@@ -28,7 +29,7 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary">{{ __('comments.button_send_comment') }}</button>
                     </div>
                 </div>
             

@@ -25,7 +25,7 @@ class PublicationController extends Controller
     {
         $publications = Publication::withCount(['comments' => function($query){
             $query->where('status','=','APROBADO');
-        }])->get();
+        }])->with('user')->get();
         return view('publications.index', compact('publications'));
     }
 
