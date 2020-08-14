@@ -57,6 +57,10 @@ class PublicationController extends Controller
         return redirect()->route('publications.index')->with('sucess','Publicación creada con éxito');
     }
 
+    public function greetingHola(){
+        $publications = Publication::commentsHola();
+        return view('publications.greeting',compact('publications'));
+    }
     /**
      * Display the specified resource.
      *

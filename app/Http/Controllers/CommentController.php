@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Publication;
 use App\Comment;
 use Auth;
+use Gate;
 
 class CommentController extends Controller
 {
@@ -31,7 +32,9 @@ class CommentController extends Controller
     public function create($id)
     {
         $publication = Publication::find($id);
+        $this->authorize('create',[Comment::class,$id]);
         return view('comments.create',compact('publication'));
+        
     }
 
     /**
