@@ -21,6 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('publications','PublicationController');
 Route::get('/publications/comment/{id}','PublicationController@comment');
-Route::get('/greeting','PublicationController@greetingHola');
+Route::get('/greeting','PublicationController@greetingHola')->name('publications.greeting');
 Route::get('/comments/create/{id}','CommentController@create')->name('comments.create');
 Route::post('/comments/{id}','CommentController@store')->name('comments.store');

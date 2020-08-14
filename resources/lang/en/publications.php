@@ -10,4 +10,5 @@ return [
     'greeting_title' => 'Comments with word "Hola"',
     'already_commented' => 'You have already commented this',
     'created_by' => 'Created by',
+    'show_publication' => 'Go to the publication',
 ]; 

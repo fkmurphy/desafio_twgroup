@@ -10928,7 +10928,7 @@ a.text-dark:focus {
 }
 
 .created-by {
-  font-weight: 400;
+  font-weight: bold;
 }
 
 .created-by span {

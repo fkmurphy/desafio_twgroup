@@ -10,4 +10,5 @@ return [
     'greeting_title' => 'Comentarios con la palabra "Hola"',
     'already_commented' => 'Usted ya ha comentado esta publicación',
     'created_by' => 'Creado por',
+    'show_publication' => 'Ir a la publicación',
 ]; 
