@@ -2,3 +2,4 @@
 /app.back
 /db_data
 /.env
+/redis_data
