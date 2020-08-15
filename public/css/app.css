@@ -10935,3 +10935,12 @@ a.text-dark:focus {
   font-weight: lighter;
 }
 
+.square {
+  border-radius: 0;
+}
+
+.icon-options {
+  margin-left: 7px;
+  margin-right: 7px;
+}
+

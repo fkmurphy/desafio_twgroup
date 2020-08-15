@@ -21,7 +21,7 @@
                 @if (isset($pub->comments_count))
                     @include('publications.publication.comments')
                 @endif
-                <a href="#" class="btn btn-primary">{{ __('publications.show_publication') }}</a>
+                <a href="{{route('publications.show',[$pub->id])}}" class="btn btn-primary square">{{ __('publications.show_publication') }}</a>
 
             </div>
             <hr>

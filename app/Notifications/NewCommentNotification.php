@@ -44,7 +44,7 @@ class NewCommentNotification extends Notification
         return (new MailMessage)
             ->subject("Tiene un nuevo comentario")
             ->line('Un nuevo comentario en su publicación: '.$this->publication->title)
-            ->action('Ver mi publicación', url('/publications/view/'.$this->publication->id));
+            ->action('Ver mi publicación', url('/publications/show/'.$this->publication->id));
     }
 
     /**

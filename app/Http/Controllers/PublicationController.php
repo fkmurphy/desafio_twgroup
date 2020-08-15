@@ -69,8 +69,11 @@ class PublicationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        $pub = Publication::where('id','=',$id)->withCount(['comments' => function($query){
+            $query->where('status','=','APROBADO');
+        }])->with('user')->firstOrFail();
+        return view('publications.show',compact('pub'));
     }
 
     public function comment($id){
