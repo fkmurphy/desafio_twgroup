@@ -41,8 +41,7 @@ Ya puede registrarse **http://127.0.0.1/**
 
 ### Compilar SASS
 ```
-    docker exec -ti app sh
-    npm run watch
+    docker exec -ti app sh -c "npm install && npm run watch"
 ```
 
 
