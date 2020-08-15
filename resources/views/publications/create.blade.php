@@ -19,7 +19,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>{{__('publications.title')}}</strong>
-                            <input type="text" name="title" class="form-control" class="@error('title') is-invalid @enderror" placeholder="{{__('publications.title_example')}}">
+                            <input type="text" name="title" class="form-control" class="@error('title') is-invalid @enderror" value="{{old('title')}}" placeholder="{{__('publications.title_example')}}">
                             @error('title')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -28,7 +28,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>{{__('publications.content')}}</strong>
-                            <textarea class="form-control" style="height:250px" class="@error('content') is-invalid @enderror" name="content" placeholder="{{__('publications.title')}}"></textarea>
+                            <textarea class="form-control" style="height:250px" class="@error('content') is-invalid @enderror" name="content" placeholder="{{__('publications.content')}}">{{old('content')}}</textarea>
                             @error('content')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
