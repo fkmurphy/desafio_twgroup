@@ -8,7 +8,7 @@ use App\Notifications\NewCommentNotification;
 class CommentObserver
 {
     /**
-     * Handle the comment "created" event.
+     * Notify new comment in publication to owner.
      *
      * @param  \App\Comment  $comment
      * @return void
@@ -21,16 +21,5 @@ class CommentObserver
         }
     }
 
-    /**
-     * Handle the comment "updated" event.
-     *
-     * @param  \App\Comment  $comment
-     * @return void
-     */
-    public function updated(Comment $comment)
-    {
-        //
-    }
-
-    
+ 
 }

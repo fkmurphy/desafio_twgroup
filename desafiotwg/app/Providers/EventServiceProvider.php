@@ -31,6 +31,7 @@ class EventServiceProvider extends ServiceProvider
         parent::boot();
 
         //
-        Comment::observe(CommentObserver::class);
+        if(Config::get('mail.mail_service'))
+            Comment::observe(CommentObserver::class);
     }
 }
