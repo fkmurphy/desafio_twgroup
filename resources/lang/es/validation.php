@@ -1,5 +1,7 @@
 <?php
 
+// Credits https://github.com/caouecs/Laravel-lang
+
 return [
     /*
     |--------------------------------------------------------------------------
