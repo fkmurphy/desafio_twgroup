@@ -11,7 +11,7 @@ Copiar el archivo example.env para docker-compose
 cp example.env .env
 ```
 
-Copiar el archivo .env.example para laravel
+Copiar el archivo .env.example para laravel. (Configure el servidor de email)
 ```
 cp desafiotwg/.env.example desafiotwg/.env
 ```
@@ -36,6 +36,8 @@ Correr migraciones
 docker exec -ti app sh -c "php artisan migrate"
 ```
 
+
+Ya puede registrarse **http://127.0.0.1/**
 
 ### Compilar SASS
 ```
