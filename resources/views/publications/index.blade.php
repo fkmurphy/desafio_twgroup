@@ -34,8 +34,9 @@
             <hr>
         @endforeach
         
-       
+        {!! $publications->links() !!}
         </div>
     </div>
 </div>
+
 @endsection

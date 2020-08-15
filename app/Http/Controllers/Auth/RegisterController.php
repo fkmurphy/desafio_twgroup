@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use Lang;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -41,6 +42,13 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function messages(){
+        return [
+            'required' => 'A title is required',
+            'unique' => 'A message is required',
+        ];
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -53,6 +61,13 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            
+        ],[
+            'required' => Lang::get('errors.register_required'),
+            'unique' => Lang::get('errors.register_unique'),
+            'confirmed' => Lang::get('errors.register_confirmed'),
+            'min' => Lang::get('errors.register_min_string'),
+            'max' => Lang::get('errors.register_min_string'),
         ]);
     }
 
