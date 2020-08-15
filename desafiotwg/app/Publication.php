@@ -26,7 +26,7 @@ class Publication extends Model
     }
     public static function commentsHola(){
         $db = DB::table('publications as p')
-            ->rightJoin('comments as c','p.id','=','c.publication_id')
+            ->join('comments as c','p.id','=','c.publication_id')
             ->join('users as u','p.user_id','=','u.id')
             ->where('c.status','=','APROBADO')
             ->whereRaw("c.content REGEXP '.*hola.*'")
