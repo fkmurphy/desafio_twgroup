@@ -13,7 +13,7 @@
             </div>
         </div>
         @if($publications->count() == 0) 
-            <small>{{ __('publications.no_publications') }}Aún no hay publicaciones.</small> 
+            <small>{{ __('publications.no_publications') }}.</small> 
         @endif
         
         @foreach($publications as $pub)

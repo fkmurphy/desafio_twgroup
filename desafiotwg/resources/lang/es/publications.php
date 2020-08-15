@@ -11,4 +11,5 @@ return [
     'already_commented' => 'Usted ya ha comentado esta publicación',
     'created_by' => 'Creado por',
     'show_publication' => 'Ir a la publicación',
+    'no_publications' => 'Aún no hay publicaciones',
 ]; 
