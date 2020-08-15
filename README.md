@@ -11,10 +11,15 @@ Copiar el archivo example.env para docker-compose
 cp example.env .env
 ```
 
-Copiar el archivo .env.example para laravel. (Configure el servidor de email)
+Copiar el archivo .env.example para laravel. 
 ```
 cp desafiotwg/.env.example desafiotwg/.env
 ```
+**IMPORTANTE:**
+Para habilitar el envío de email, además de configurar las variables de entorno típicas, deberá configurar la siguiente variable como true:
+*MAIL_SERVICE=true*
+
+
 Constriuir la imagen y crear los contenedores
 ```
 docker-compose build
