@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'mail_service' => (bool) env('MAIL_SERVICE',false),
     /*
     |--------------------------------------------------------------------------
     | Mail Driver
