@@ -1,0 +1,56 @@
+version: '3'
+services:
+
+  #Laravel App
+  app:
+    build:
+      context: ./desafiotwg
+      dockerfile: Dockerfile
+      args:
+        - USER_ID=${USER_ID}
+    container_name: app
+    depends_on:
+      - db
+    restart: always
+    working_dir: /app
+    volumes:
+      - ./desafiotwg:/app
+    networks:
+      - laravel
+#Nginx Service
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: always
+    working_dir: /app
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./desafiotwg:/app
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./nginx/ssl/:/etc/nginx/ssl/
+    networks:
+      - laravel
+  db:
+    image: mariadb:latest
+    container_name: db
+    restart: always
+    ports:
+      - "3306:3306"
+    env_file:
+      - .env
+    volumes:
+      - ./db_data:/var/lib/mysql/
+    networks:
+      - laravel
+  redis:
+    image: redis:6-alpine
+    volumes:
+      - ./redis_data:/data
+    networks:
+      - laravel 
+
+networks:
+  laravel:
+    driver: bridge
