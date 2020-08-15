@@ -8,6 +8,8 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use Illuminate\Support\Facades\Event;
 use App\Comment;
 use App\Observers\CommentObserver;
+use Config;
+
 class EventServiceProvider extends ServiceProvider
 {
     /**
