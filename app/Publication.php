@@ -4,7 +4,7 @@ namespace App;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
-define("WORD_RESUME",70);
+define("WORD_RESUME",130);
 
 class Publication extends Model
 {

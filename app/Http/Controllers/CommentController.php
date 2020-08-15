@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\{Comment,Publication};
+use App\Http\Requests\UserComment;
 use Auth;
 use Gate;
 
@@ -42,7 +43,7 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,int $id)
+    public function store(UserComment $request,int $id)
     {
         $request->validate([
             'content' => 'required'

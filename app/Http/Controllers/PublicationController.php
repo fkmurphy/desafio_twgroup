@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePublication;
 use App\Publication;
 use Auth;
 class PublicationController extends Controller
@@ -45,12 +46,9 @@ class PublicationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePublication $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required'
-        ]);
+        
         $publication = new Publication($request->all());
         $publication->user_id = Auth::id();
         $publication->save();

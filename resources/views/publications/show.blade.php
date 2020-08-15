@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 ">
-<div class="card text-center">
+            <div class="card text-center">
                 @can('create',[App\Comment::class,$pub->id])
                     <?php $canComment=true ?>
                 @else 
@@ -18,8 +18,8 @@
                 @endif
         
             </div>
-            </div>
         </div>
-        </div>
+    </div>
+</div>
 @endsection
        

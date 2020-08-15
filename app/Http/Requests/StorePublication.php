@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 use Lang;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserComment extends FormRequest
+class StorePublication extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,16 @@ class UserComment extends FormRequest
     public function rules()
     {
         return [
+            'title' => 'required',
             'content' => 'required'
         ];
+       
     }
-    
-    public function messages()
-    {
+
+    public function messages(){
         return [
-            'content.required' => Lang::get('errors.comment_content_required'),
+            'title.required' => Lang::get('errors.publications_title_required'),
+            'content.required' => Lang::get('errors.publications_content_required'),
         ];
     }
 }
