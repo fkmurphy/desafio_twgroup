@@ -1,2 +1,4 @@
 /app
 /app.back
+/db_data
+/.env

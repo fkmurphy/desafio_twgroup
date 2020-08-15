@@ -3,7 +3,7 @@
 ### Pasos para iniciar el proyecto
 Clonar proyecto
 ```
-git clone git@github.com:fkmurphy/desafio_twgroup.git desafiotw-fkmurphy && cd desafiotw-fkmurphy
+git clone git@github.com:fkmurphy/desafio_twgroup.git desafiotwg-fkmurphy && cd desafiotwg-fkmurphy
 ```
 
 Copiar el archivo example.env para docker-compose
